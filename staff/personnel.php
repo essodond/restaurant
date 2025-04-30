@@ -150,7 +150,7 @@
                     <i class="lucide-menu"></i>
                     <span>Menu</span>
                 </a>
-                <a href="/orders" class="nav-link">
+                <a href="../commande/commande.php" class="nav-link">
                     <i class="lucide-clipboard-list"></i>
                     <span>Commandes</span>
                 </a>
