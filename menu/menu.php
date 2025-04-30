@@ -31,7 +31,7 @@
                     <span>Commandes</span>
                 </a>
 
-                <a href="/staff" class="nav-link">
+                <a href="../staff/personnel.php" class="nav-link">
                     <i class="lucide-users"></i>
                     <span>Personnel</span>
                 </a>

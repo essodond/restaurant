@@ -146,7 +146,7 @@
             </div>
             
             <div class="nav-links">
-                <a href="/menu" class="nav-link">
+                <a href="../menu/menu.php" class="nav-link">
                     <i class="lucide-menu"></i>
                     <span>Menu</span>
                 </a>
@@ -154,7 +154,7 @@
                     <i class="lucide-clipboard-list"></i>
                     <span>Commandes</span>
                 </a>
-                <a href="/staff" class="nav-link active">
+                <a href="personnel.php" class="nav-link active">
                     <i class="lucide-users"></i>
                     <span>Personnel</span>
                 </a>
