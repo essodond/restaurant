@@ -7,13 +7,15 @@ class Menu {
     }
 
     // Ajouter un plat
-    public function ajouterPlat($nom_plat, $prix, $categorie = 'plat') {
-        $sql = "INSERT INTO menu (nom_plat, prix, categorie) VALUES (:nom_plat, :prix, :categorie)";
+    // Ajouter un plat
+    public function ajouterPlat($nom_plat, $prix, $categorie = 'plat', $image = '') {
+        $sql = "INSERT INTO menu (nom_plat, prix, categorie, image) VALUES (:nom_plat, :prix, :categorie, :image)";
         $req = $this->pdo->prepare($sql);
         return $req->execute([
             ':nom_plat' => $nom_plat,
             ':prix' => $prix,
-            ':categorie' => $categorie
+            ':categorie' => $categorie,
+            ':image' => $image
         ]);
     }
 

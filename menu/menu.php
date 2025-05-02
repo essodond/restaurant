@@ -72,7 +72,7 @@ $plats = $menu->getTousLesPlats(); // Récupère les plats
             <?php foreach ($plats as $plat): ?>
         <div class="menu-item">
         <div class="menu-image">
-            <img src="../images/placeholder.jpg" alt="<?= htmlspecialchars($plat['nom_plat']) ?>">
+            <img src="../images/<?= htmlspecialchars($plat['image']) ?>" alt="<?= htmlspecialchars($plat['nom_plat']) ?>">
         </div>
         <div class="menu-info">
             <h3><?= htmlspecialchars($plat['nom_plat']) ?></h3>

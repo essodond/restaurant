@@ -188,10 +188,10 @@ require_once 'db.php'; // ceci va inclure ton fichier de connexion
                     <label for="categorie">Catégorie</label>
                     <select id="categorie" name="categorie" required>
                         <option value="">Sélectionnez une catégorie</option>
-                        <option value="entrees">Entrées</option>
-                        <option value="plat">Plats Principaux</option>
-                        <option value="desserts">Desserts</option>
-                        <option value="boissons">Boissons</option>
+                        <option value="entree">Entrée</option>
+                        <option value="plat">Plat Principal</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="boisson">Boisson</option>
                     </select>
                 </div>
 

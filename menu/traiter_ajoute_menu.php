@@ -13,21 +13,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Debugging pour vérifier la catégorie
     var_dump($categorie); // Affiche la valeur reçue pour la catégorie
-    
+
+    // ... existing code ...
 
     if ($image && $image['error'] === UPLOAD_ERR_OK) {
+        
+        
+        // Keep original filename and extension
         $nomFichier = basename($image['name']);
-        move_uploaded_file($image['tmp_name'], '../images/' . $nomFichier);
+        $cheminDestination = '../images/' . $nomFichier;
+        
+        if (move_uploaded_file($image['tmp_name'], $cheminDestination)) {
+            if (!empty($nom) && !empty($prix)) {
+                $menu->ajouterPlat($nom, $prix, $categorie, $nomFichier);
+                header("Location: menu.php?success=1");
+                exit;
+            }
+        }
     }
 
-    $categoriesValides = ['Entrées', 'Plat Principaux', 'Dessert', 'Boisson'];
-    if (!in_array($categorie, $categoriesValides)) {
+    // ... existing code ...
+
+    // Define valid categories with their database values
+    $categoriesValides = [
+        'entree' => 'entree',
+        'plat' => 'plat',
+        'dessert' => 'dessert',
+        'boisson' => 'boisson'
+    ];
+    
+    // Normalize the input category to lowercase without accents
+    $categorieNormalisee = strtolower(trim($categorie));
+    
+    if (!array_key_exists($categorieNormalisee, $categoriesValides)) {
+        // Return error message and stop execution if category is invalid
         echo "❌ Catégorie invalide.";
         exit;
     }
+    
+    // Use the normalized category value for database storage
+    $categorie = $categoriesValides[$categorieNormalisee];
 
     if (!empty($nom) && !empty($prix)) {
-        $menu->ajouterPlat($nom, $prix, $categorie);
+        $menu->ajouterPlat($nom, $prix, $categorie, $nomFichier);
         header("Location: menu.php?success=1");
         exit;
     } else {
