@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         move_uploaded_file($image['tmp_name'], '../images/' . $nomFichier);
     }
 
-    $categoriesValides = ['entrée', 'plat', 'dessert', 'boisson'];
+    $categoriesValides = ['Entrées', 'Plat Principaux', 'Dessert', 'Boisson'];
     if (!in_array($categorie, $categoriesValides)) {
         echo "❌ Catégorie invalide.";
         exit;

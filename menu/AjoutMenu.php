@@ -213,7 +213,7 @@ require_once 'db.php'; // ceci va inclure ton fichier de connexion
                     <div class="image-upload" onclick="document.getElementById('image').click()">
                         <i class="lucide-image-plus"></i>
                         <p>Cliquez ou glissez une image ici</p>
-                        <input type="file" id="image" name="image" accept="image/*" style="display: none" required>
+                        <input type="file" id="image" name="image" accept="../image/*" style="display: none" required>
                     </div>
                 </div>
 
