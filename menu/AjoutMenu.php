@@ -1,8 +1,13 @@
+<?php
+require_once 'db.php'; // ceci va inclure ton fichier de connexion
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta nom="viewport" content="width=device-width, initial-scale=1.0">
     <title>RestaurantPro - Ajouter un Menu</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/lucide-icons/dist/umd/lucide.css">
@@ -173,18 +178,18 @@
         </div>
 
         <div class="form-card">
-            <form action="process_menu.php" method="POST" enctype="multipart/form-data">
+            <form action="traiter_ajoute_menu.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="name">Nom du Plat</label>
-                    <input type="text" id="name" name="name" required placeholder="Ex: Coq au Vin">
+                    <label for="nom">Nom du Plat</label>
+                    <input type="text" id="name" name="nom" required placeholder="Ex: Coq au Vin">
                 </div>
 
                 <div class="form-group">
-                    <label for="category">Catégorie</label>
-                    <select id="category" name="category" required>
+                    <label for="categorie">Catégorie</label>
+                    <select id="categorie" name="categorie" required>
                         <option value="">Sélectionnez une catégorie</option>
                         <option value="entrees">Entrées</option>
-                        <option value="plats">Plats Principaux</option>
+                        <option value="plat">Plats Principaux</option>
                         <option value="desserts">Desserts</option>
                         <option value="boissons">Boissons</option>
                     </select>
@@ -193,7 +198,7 @@
                 <div class="form-group">
                     <label for="price">Prix</label>
                     <div class="price-input">
-                        <input type="number" id="price" name="price"  required placeholder="0.00">
+                        <input type="number" id="prix" name="prix"  required placeholder="0.00">
                     </div>
                 </div>
 
@@ -201,7 +206,7 @@
                     <label for="description">Description</label>
                     <textarea id="description" name="description" required 
                         placeholder="Décrivez les ingrédients et la préparation..."></textarea>
-                </div>
+                </div> 
 
                 <div class="form-group">
                     <label for="image">Image du Plat</label>

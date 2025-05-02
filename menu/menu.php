@@ -1,3 +1,13 @@
+
+<?php
+require_once 'db.php';            // Charge la variable $connexion
+require_once 'menu.class.php';   // Charge la classe Menu
+
+$menu = new Menu($connexion);    // Injecte la connexion dans la classe
+$plats = $menu->getTousLesPlats(); // Récupère les plats
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,59 +62,31 @@
         <h1>Menu Management</h1>
         <a href="AjoutMenu.php" class="add-btn">
             <i class="lucide-plus"></i>
-            Add Menu Item
+            Ajouter un menu
         </a>
     </div>
 
-    <div class="menu-list">
-        <div class="menu-item">
-            <div class="menu-image">
-                <img src="../images/pasta.jpg" alt="Pasta Carbonara">
-            </div>
-            <div class="menu-info">
-                <h3>Pasta Carbonara</h3>
-                <p>Classic Italian pasta with eggs and bacon</p>
-                <span class="category">Main Course</span>
-                <span class="price">1500 FCFA</span>
-            </div>
-            <div class="menu-actions">
-                <button class="edit-btn"><i class="lucide-edit"></i></button>
-                <button class="delete-btn"><i class="lucide-trash-2"></i></button>
-            </div>
-        </div>
+   
 
+        <div class="menu-list">
+            <?php foreach ($plats as $plat): ?>
         <div class="menu-item">
-            <div class="menu-image">
-                <img src="../images/salade.jpg" alt="Caesar Salad">
-            </div>
-            <div class="menu-info">
-                <h3>Caesar Salad</h3>
-                <p>Fresh romaine lettuce with Caesar dressing and croutons</p>
-                <span class="category">Starters</span>
-                <span class="price">1200 FCFA</span>
-            </div>
-            <div class="menu-actions">
-                <button class="edit-btn"><i class="lucide-edit"></i></button>
-                <button class="delete-btn"><i class="lucide-trash-2"></i></button>
-            </div>
+        <div class="menu-image">
+            <img src="../images/placeholder.jpg" alt="<?= htmlspecialchars($plat['nom_plat']) ?>">
         </div>
-
-        <div class="menu-item">
-            <div class="menu-image">
-                <img src="../images/chocolat.jpg" alt="Chocolate Lava Cake">
-            </div>
-            <div class="menu-info">
-                <h3>Chocolate Lava Cake</h3>
-                <p>Warm chocolate cake with molten center</p>
-                <span class="category">Desserts</span>
-                <span class="price">600 FCFA</span>
-            </div>
-            <div class="menu-actions">
-                <button class="edit-btn"><i class="lucide-edit"></i></button>
-                <button class="delete-btn"><i class="lucide-trash-2"></i></button>
-            </div>
+        <div class="menu-info">
+            <h3><?= htmlspecialchars($plat['nom_plat']) ?></h3>
+            <p><?= htmlspecialchars($plat['categorie']) ?></p>
+            <span class="category"><?= htmlspecialchars($plat['categorie']) ?></span>
+            <span class="price"><?= number_format($plat['prix'], 0, ',', ' ') ?> FCFA</span>
         </div>
-    </div>
+        <div class="menu-actions">
+            <button class="edit-btn"><i class="lucide-edit"></i></button>
+            <button class="delete-btn"><i class="lucide-trash-2"></i></button>
+        </div>
+</div>
+<?php endforeach; ?>
+</div>
    
 </div>
 </body>

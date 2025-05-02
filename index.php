@@ -1,3 +1,3 @@
 <?php
-header("Location: commande/commande.php");
+header("Location: menu/menu.php");
 exit;
