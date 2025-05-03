@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ... existing code ...
 
     if ($image && $image['error'] === UPLOAD_ERR_OK) {
-        
+        //kazalo
         
         // Keep original filename and extension
         $nomFichier = basename($image['name']);
