@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'restaurant_db'; 
 $user = 'root';        
-$pass = 'root';             
+$pass = '';             
 
 try {
     $connexion = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);

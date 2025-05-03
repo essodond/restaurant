@@ -31,7 +31,7 @@ $plats = $menu->getTousLesPlats(); // Récupère les plats
             
             <div class="nav-links" id="navLinks">
                 
-                </a>
+                </>
                 <a href="/menu" class="nav-link active">
                     <i class="lucide-menu"></i>
                     <span>Menu</span>
@@ -82,7 +82,7 @@ $plats = $menu->getTousLesPlats(); // Récupère les plats
         </div>
         <div class="menu-actions">
             <button class="edit-btn"><i class="lucide-edit"></i></button>
-            <button class="delete-btn"><i class="lucide-trash-2"></i></button>
+            <a href="traiter_supprimer_menu.php?id=<?php echo $plat['id'];?>" class="delete-btn"><i class="lucide-trash-2" >Supprimer</i></a>
         </div>
 </div>
 <?php endforeach; ?>
