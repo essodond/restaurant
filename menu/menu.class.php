@@ -32,5 +32,40 @@ class Menu {
         $req = $this->pdo->prepare($sql);
         return $req->execute([':id' => $id]);
     }
+
+    // Modifier un plat
+    public function getPlatParId($id) {
+        $sql = "SELECT * FROM menu WHERE id = ?";
+        $req = $this->pdo->prepare($sql);
+        $req->execute([$id]);
+        return $req->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // Modifier un plat existant
+public function modifierPlat($id, $nom_plat, $prix, $categorie, $image = null) {
+    if ($image) {
+        $sql = "UPDATE menu SET nom_plat = :nom_plat, prix = :prix, categorie = :categorie, image = :image WHERE id = :id";
+        $params = [
+            ':nom_plat' => $nom_plat,
+            ':prix' => $prix,
+            ':categorie' => $categorie,
+            ':image' => $image,
+            ':id' => $id
+        ];
+    } else {
+        $sql = "UPDATE menu SET nom_plat = :nom_plat, prix = :prix, categorie = :categorie WHERE id = :id";
+        $params = [
+            ':nom_plat' => $nom_plat,
+            ':prix' => $prix,
+            ':categorie' => $categorie,
+            ':id' => $id
+        ];
+    }
+
+    $req = $this->pdo->prepare($sql);
+    return $req->execute($params);
+}
+
+    
 }
 ?>

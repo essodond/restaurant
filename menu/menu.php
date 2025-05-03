@@ -81,8 +81,13 @@ $plats = $menu->getTousLesPlats(); // Récupère les plats
             <span class="price"><?= number_format($plat['prix'], 0, ',', ' ') ?> FCFA</span>
         </div>
         <div class="menu-actions">
+<<<<<<< HEAD
             <button class="edit-btn"><i class="lucide-edit"></i></button>
             <a href="traiter_supprimer_menu.php?id=<?php echo $plat['id'];?>" class="delete-btn"><i class="lucide-trash-2" >Supprimer</i></a>
+=======
+            <a href="modifier_menu.php?id=<?php echo $plat['id']?>" class="edit-btn"><i class="lucide-edit">modifier</i></a>
+            <button class="delete-btn"><i class="lucide-trash-2"></i></button>
+>>>>>>> dece257 (mis en place des pages de modification au niveau du menu)
         </div>
 </div>
 <?php endforeach; ?>
